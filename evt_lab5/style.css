@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'Unbounded';
+    src: url('unbounded.ttf') format('truetype');
+}
+
+/* Подключение шрифта для второго фильма */
+@font-face {
+    font-family: 'TTNorms';
+    src: url('ttnorms.ttf') format('truetype');
+}
+
+/* Подключение шрифта для третьего фильма */
+@font-face {
+    font-family: 'Soyuz Grotesk';
+    src: url('soyuzgrotesk.ttf') format('truetype');
+}
+
+#numb1 {
+    font-family: 'Unbounded', sans-serif;
+}
+
+#numb2 {
+    font-family: 'TTNorms', sans-serif;
+}
+
+#numb3 {
+    font-family: 'Soyuz Grotesk', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0; /* выбранный цвет фона */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1440px; /* ширина контейнера */
+    margin: 0 auto; /* автоматическое выравнивание по центру */
+    background-color: #f0f0f0; /* выбранный цвет фона */
+    padding: 20px; /* отступы вокруг контента */
+}
+
+h1 {
+    text-align: center; /* выравнивание заголовка по центру */
+}
+
+ul {
+    list-style-type: none; /* убираем маркеры списка */
+    padding: 0;
+}
+
+ul li a {
+    color: black; /* цвет ссылок */
+    text-decoration: none; /* убираем подчеркивание */
+}
+
+div[id^="numb"] {
+    text-align: center; /* выравнивание текста по центру */
+    padding: 20px; /* отступы вокруг блока */
+}
+
+img {
+    width: 200px; /* одинаковая ширина для всех изображений */
+    height: 200px;
+    border-radius: 10px; /* закругленные края */
+    object-fit: cover;
+    margin-top: 15px;
+}
+
+.bold-text {
+    font-weight: bold; /* выделение текста жирным */
+}
+
+#numb1 p {
+    text-align: center; /* выравнивание текста по центру для первого фильма */
+    max-width: 300px; /* ограничение ширины текста */
+    margin: 0 auto;
+}
+
+#numb2 p {
+    text-align: justify; /* выравнивание текста по ширине для второго фильма */
+    max-width: 300px; /* ограничение ширины текста */
+    margin: 0 auto;
+}
+
+#numb3 p {
+    text-align: left; /* выравнивание текста по левому краю для третьего фильма */
+    max-width: 300px; /* ограничение ширины текста */
+    margin: 0 auto;
+    font-weight: 200;
+}
+
+table {
+    border-collapse: collapse; /* объединение границ таблицы */
+    width: 100%; /* ширина таблицы на всю доступную ширину */
+}
+
+table, th, td {
+    border: 1px solid black; /* границы ячеек таблицы */
+    text-align: center; /* выравнивание содержимого ячеек по центру */
+}
+
+th, td {
+    padding: 8px; /* отступы внутри ячеек */
+}
+
+#numb1, #numb2, #numb3 {
+    max-width: 800px;
+    margin: 0 auto;
+}
