@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Verdana', sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.main-header {
+  background-color: #6a5acd; /* Фиолетовый */
+  padding: 20px;
+  width: 100%;
+}
+
+h2 {
+  color: #fff;
+  font-size: 28px;
+}
+
+/* Контейнер для текста, чтобы поднять элементы выше */
+.content {
+  position: absolute;
+  top: 20%;
+  transform: translateY(-20%);
+}
+
+.action-btn {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  background-color: #ff4500; /* Оранжево-красный */
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.5s, transform 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #32cd32; /* Зеленый */
+  transform: scale(1.1);
+}
+
+.important-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #1e90ff; /* Синий */
+  position: relative;
+}
+
+.important-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #1e90ff;
+  transition: width 0.5s;
+}
+
+.important-link:hover::after {
+  width: 100%;
+}
+
+/* Мячик остается внизу */
+.moving-ball {
+  width: 60px;
+  height: 60px;
+  background-color: #ff1493; /* Розовый */
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  animation: bounce 4s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+      bottom: 10px;
+      transform: translateY(0);
+  }
+  50% {
+      bottom: 200px; /* Мячик теперь прыгает ниже */
+      transform: translateY(-30%);
+  }
+}
