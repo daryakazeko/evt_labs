@@ -1,0 +1,97 @@
+*:not(h2, h3) {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+.wrapper {
+  min-width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 40px;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+main {
+  padding: 40px 0 50px 0;
+  text-align: center;
+}
+
+main article.article p {
+  font-style: normal;
+}
+
+blockquote.blockquote {
+  font-style: italic;
+}
+
+.article img {
+  min-height: 120px;
+}
+.article:nth-of-type(odd) img {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+.article:nth-of-type(even) img {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+
+.article img + p::first-letter {
+  font-size: 2em;
+  color: red;
+}
+
+.word {
+  position: sticky;
+  top: 40px;
+  padding: 5px 0;
+  width: 70px;
+  height: auto;
+  background-color: rgb(240, 128, 128);
+}
+.word.second {
+  margin: 0 0 0 72px;
+  width: 30px;
+  background-color: rgb(240, 142, 142);
+}
+.word.third {
+  margin: 0 0 0 104px;
+  width: 60px;
+  background-color: rgb(240, 160, 160);
+}
+.word.fourth {
+  margin: 0 0 0 166px;
+  width: 80px;
+  background-color: rgb(240, 180, 180);
+}
+.word.fifth {
+  margin: 0 0 0 248px;
+  width: 70px;
+  background-color: rgb(240, 203, 203);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  background-color: cadetblue;
+}
+
+footer a {
+  margin: 0 0 0 5px;
+}
+
+footer a:hover {
+  cursor: default;
+}
