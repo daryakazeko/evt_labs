@@ -1,0 +1,567 @@
+@font-face {
+    font-family: 'Druk'; /* Название вашего шрифта */
+    src: url('druk/Druk\ Wide\ Cyr\ Bold.otf') format('opentype'); /* Путь к файлу OTF */
+  }
+
+h1, h2 {
+    font-family: 'Druk';
+}
+
+h1 {
+    max-width: 700px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+p {
+    font-size: 18px;
+}
+
+:root {
+    --main-bg-color: #f3fbff; /* Основной цвет фона */
+    --main-text-color: #232431; /* Основной цвет текста */
+    --accent-color: #EC8B3C; /* Цвет акцента */
+    --accent-hover-color: #d57629; /* Цвет акцента при наведении */
+    --dark-bg-color: #232431; /* Цвет фона для темной темы */
+    --dark-text-color: #fff; /* Цвет текста для темной темы */
+    --main-card-color:#fff;
+    --dark-card-color: #3A3C51;
+    --main-header-color: #fff;
+    --dark-header-color: #3A3C51;
+
+    --swiper-theme-color: #EC8B3C !important;
+    --swiper-navigation-size: 24px !important;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Helvetica';
+}
+
+.dark-theme {
+    --main-bg-color: var(--dark-bg-color);
+    --main-text-color: var(--dark-text-color);
+    --main-card-color: var(--dark-card-color);
+    --main-header-color: var(--dark-header-color);
+}
+
+/* Дополнительные стили */
+.main-container {
+    max-width: 1440px;  /*Используем весь экран */
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+.toggle-theme-btn {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    padding: 10px 20px;
+    background-color: grey;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 9999;
+}
+
+.toggle-theme-btn:hover {
+    background-color: rgb(92, 92, 92);
+}
+
+/* Класс для кнопок */
+.btn {
+    display: inline-block;
+    padding: 15px 55px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover-color);
+}
+
+.sec-btn {
+    display: inline-block;
+    padding: 15px 55px;
+    border: 2px solid var(--accent-color);
+    color: var(--main-text-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.sec-btn:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/*
+
+HEADER
+
+*/
+/* Общие стили */
+.header {
+    position: sticky;
+    top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background: var(--main-header-color);
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-list li {
+    margin-right: 50px;
+}
+
+.nav-list li a:hover {
+    color: var(--accent-hover-color);
+    transition: color 0.2s;
+}
+
+@media screen and (max-width: 1000px) {
+    .nav-list li {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .nav-list li {
+        margin-right: 10px;
+    }
+}
+
+.nav-list li:last-child {
+    margin-right: 0;
+}
+
+.nav-list li a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: var(--main-text-color);
+}
+
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+.phone {
+    color: var(--main-text-color);
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.map-link {
+    color: var(--main-text-color);
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 850px) {
+    .phone {
+        margin-right: 5px;
+    }
+}
+
+
+/* Бургер-меню для мобильных устройств */
+.burger-menu-btn {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    right: 20px; 
+}
+
+.burger-menu-icon {
+    width: 30px;
+    height: 3px;
+    background-color: var(--main-text-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.burger-menu-btn.active .burger-menu-icon:nth-child(2) {
+    opacity: 0; /* Скрытие центральной полоски при открытом бургер-меню */
+}
+
+.burger-menu-btn.active .burger-menu-icon:first-child {
+    transform: translateY(8px) rotate(45deg); /* Вращаем и сдвигаем верхнюю полоску для создания крестика */
+}
+
+.burger-menu-btn.active .burger-menu-icon:last-child {
+    transform: translateY(-8px) rotate(-45deg); /* Вращаем и сдвигаем нижнюю полоску для создания крестика */
+}
+
+/* Адаптивность */
+@media only screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: block; /* Показываем меню при активном состоянии */
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin: 50px 0;
+    }
+
+    .contact-info.active {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Показываем контактную информацию при активном состоянии */
+    }
+
+    .burger-menu-btn {
+        display: block; /* Показываем кнопку бургер-меню на экранах меньше 768px */
+    }
+
+    .nav-links {
+        display: none; /* Скрываем меню по умолчанию */
+    }
+    
+    .contact-info {
+        display: none; /* Скрываем контактную информацию по умолчанию */
+    }
+}
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+section {
+    padding: 50px 0;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+/* Grid контейнер */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0px, 1fr));
+    grid-gap: 20px;
+}
+
+.benefits {
+    grid-template-columns: repeat(4, minmax(0px, 1fr));
+}
+
+@media screen and (max-width: 1440px) {
+    .grid-container {
+        grid-template-columns: repeat(3, minmax(0px, 1fr));
+    }
+
+    .benefits {
+        grid-template-columns: repeat(4, minmax(0px, 1fr));
+    }
+  }
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, minmax(0px, 1fr));
+        
+    }
+  }
+  
+@media screen and (max-width: 660px) {
+    .grid-container {
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+        grid-gap: 20px; /* Изменение размера промежутков между карточками */
+    }
+  }
+
+/* Карточки */
+.card {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--main-card-color);
+    color: var(--main-text-color);
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    height: auto;
+    max-height: 500px;
+    background-size: cover;
+}
+
+.card h3 {
+    margin-top: 10px;
+}
+
+.card p {
+    margin-top: 5px;
+    font-weight: 400;
+    line-height: 135%;
+    opacity: .8;
+}
+
+.card button {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card button:hover {
+    background-color: var(--accent-hover-color);
+}
+
+/* Карусель */
+.swiper-container {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  @media screen and (max-width: 620px) {
+    .swiper-container {
+        height: 230px;
+      }
+  }
+  
+  .swiper-slide {
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }
+  
+  .swiper-pagination {
+    position: relative;
+    top: -30px;
+  }
+  
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .swiper-button-prev {
+    left: 10px;
+  }
+  
+  .swiper-button-next {
+    right: 10px;
+  }
+  
+  /* Для планшетов */
+@media screen and (max-width: 768px) {
+    .swiper-container {
+      width: 100%; /* Примерное значение ширины для планшетов */
+    }
+  }
+  
+  /* Для телефонов */
+  @media screen and (max-width: 380px) {
+    .swiper-container {
+      width: 100%; /* Примерное значение ширины для телефонов */
+    }
+  }
+
+  .intro {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    align-items: center;
+  }
+
+  @media screen and (max-width:768px) {
+    .intro {
+        flex-direction: column;
+    }
+  }
+
+  .header {
+    position: sticky;
+    z-index: 9999;
+}
+
+h1 {
+    font-size: 52px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+.intro-txt {
+    margin-bottom: 30px;
+}
+
+
+
+
+/* онлайн-подбор */
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: var(--main-card-color);
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 40px;
+  }
+  
+  h3 {
+    margin-bottom: 10px;
+  }
+  
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .radio-group div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+    opacity: .8;
+  }
+  
+  input[type="radio"],
+  input[type="text"],
+  input[type="tel"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+ .btn-form {
+    width: 100%;
+ }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color:#232431;
+    font-size: 24px;
+  }
+  
+  #message {
+    font-size: 18px;
+    text-align: center;
+    color:#232431;
+  }
+
+
+@media screen and (min-width: 768px) {
+    .podbor-h2 {
+        text-align: center;
+    }
+}
+
+.car-price {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.price {
+    color: var(--accent-color);
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+}
+
+.phone {
+    font-weight: 700;
+}
+
+.header-link-active {
+    color: var(--accent-color) !important;
+}
+
+@media screen and (max-width: 600px) {
